@@ -10,7 +10,7 @@ class BasketballNet{
  
  void displayNet(){
    image(netImage, position.x, position.y, 100, 200);//basketball net 
-   println(position.x + " " + position.y);
+   //println(position.x + " " + position.y);
  }
  
  void throwNet(){
