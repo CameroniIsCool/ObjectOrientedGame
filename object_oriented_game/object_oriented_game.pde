@@ -1,4 +1,6 @@
 PImage netImage;
+PImage barImage;
+PImage guyImage;
 BasketballNet net;
 
 boolean thrown;//whether the net has been thrown
@@ -29,6 +31,8 @@ void setup(){
   triAcceleration = new PVector(1, 0);
      
   netImage = loadImage("Basketball hoop.png");
+  barImage = loadImage("ThrowBar.png");
+  guyImage = loadImage("Guy.png");
   net = new BasketballNet(320, 200, netImage);// rect mode corners equivalent: 250, 100
 }
 void draw(){
@@ -41,21 +45,23 @@ void draw(){
   }
   
   if(thrown == true){
-    net.throwNet(); 
+    net.throwNet(strength); 
   }
 
 }
   void drawshapes(){
+    imageMode(CORNERS);//center to facilitate rotation
     fill(0);
-    rect(70, 230, 120, 300);//guy throwing ball
-    rect(30, 320, 370, 370); //throw bar
+    image(guyImage, 50, 230, 120, 300);//guy throwing ball
+    image(barImage, 30, 320, 370, 370); //throw bar
+    imageMode(CENTER);//center to facilitate rotation
     net.displayNet();
   }
   
 void testtrajectory(float i){
  //for(int i = 0; i <=100; i++){//i will represent the strength value
-  equationB = map(i, 0, 100, 210, 390);//change two values in the equation
-  equationC = map(i, 0, 100, 65, 286);//B and C are arbitrary, thats just the way i had it setup in desmos
+  equationB = map(i, 0, 100, 130, 390);//change two values in the equation
+  equationC = map(i, 0, 100, -30, 286);//B and C are arbitrary, thats just the way i had it setup in desmos
   //desmos graph: https://www.desmos.com/calculator/spruifatdj
 
   fill(3*i, i+125, 160 - i);//cool colours :D
