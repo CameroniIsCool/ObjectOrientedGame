@@ -17,7 +17,6 @@ class BasketballNet{
      image(netImage, 0, 0, 100, 200);//basketball net 
      popMatrix();
      rotation -= 0.025;
-     println(strength);
    }
    else{
      image(netImage, position.x, position.y, 100, 200);//basketball net 
