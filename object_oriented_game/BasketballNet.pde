@@ -12,7 +12,7 @@ class BasketballNet{
  void displayNet(){
    if(thrown == true){
      pushMatrix();
-     translate(position.x, position.y);
+     translate(position.x, position.y);//rotate from the middle
      rotate(rotation);
      image(netImage, 0, 0, 100, 200);//basketball net 
      popMatrix();
